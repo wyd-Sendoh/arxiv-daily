@@ -1,46 +1,81 @@
 # ============================================================
-# arXiv 每日论文追踪 - 配置文件
+# arXiv 每日论文追踪 - 配置文件（机器人 / 物理AI 方向）
 # 修改这里即可调整追踪的主题、关键词和范围，无需改代码。
 # ============================================================
 
 # 限定检索的 arXiv 学科分类（留空 [] 表示不限分类）。
-# 常用：cs.AI cs.LG cs.CL cs.CV cs.RO stat.ML eess.IV
-# 完整列表见 https://arxiv.org/category_taxonomy
+# cs.RO 机器人 | cs.LG 机器学习 | cs.AI 人工智能 | cs.CV 计算机视觉
+# cs.GR 图形学(角色动画) | eess.SY 系统与控制
 categories:
-  - cs.AI
+  - cs.RO
   - cs.LG
-  - cs.CL
+  - cs.AI
+  - cs.CV
+  - cs.GR
+  - eess.SY
 
-# 追踪的主题。每个主题会生成 papers/<slug>.md 一个分类文件。
+# 追踪的主题。slug 决定生成的文件名（papers/<slug>.md）。
 # keywords 之间是「或」关系：标题或摘要命中任意一个即收录。
 topics:
-  - name: "LLM Agents"
+  - name: "人形机器人 (Humanoid Robots)"
+    slug: "humanoid-robots"
     keywords:
-      - "LLM agent"
-      - "language model agent"
-      - "autonomous agent"
-      - "tool use"
+      - "humanoid robot"
+      - "humanoid locomotion"
+      - "bipedal locomotion"
+      - "bipedal robot"
 
-  - name: "Retrieval-Augmented Generation"
+  - name: "四足机器人 (Quadruped Robots)"
+    slug: "quadruped-robots"
     keywords:
-      - "retrieval-augmented"
-      - "RAG"
-      - "retrieval augmented generation"
+      - "quadruped"
+      - "quadrupedal"
+      - "legged robot"
+      - "legged locomotion"
 
-  - name: "Diffusion Models"
+  - name: "强化学习运动控制 (RL Locomotion & Control)"
+    slug: "rl-locomotion-control"
     keywords:
-      - "diffusion model"
-      - "score-based generative"
-      - "flow matching"
+      - "whole-body control"
+      - "locomotion policy"
+      - "sim-to-real"
+      - "motor skill learning"
+      - "agile locomotion"
 
-  - name: "Reinforcement Learning"
+  - name: "VLA 视觉-语言-动作 (Vision-Language-Action)"
+    slug: "vla"
     keywords:
-      - "reinforcement learning"
-      - "RLHF"
-      - "policy optimization"
+      - "vision-language-action"
+      - "VLA model"
+      - "robot manipulation policy"
+      - "language-conditioned manipulation"
+
+  - name: "世界模型 (World Models)"
+    slug: "world-models"
+    keywords:
+      - "world model"
+      - "model-based reinforcement learning"
+      - "video prediction model"
+      - "learned simulator"
+
+  - name: "物理AI / 具身智能 (Physical & Embodied AI)"
+    slug: "physical-embodied-ai"
+    keywords:
+      - "embodied AI"
+      - "embodied intelligence"
+      - "physical AI"
+      - "embodied agent"
+
+  - name: "角色动画 (Character Animation)"
+    slug: "character-animation"
+    keywords:
+      - "character animation"
+      - "motion synthesis"
+      - "physics-based character"
+      - "human motion generation"
 
 # 每个主题每次最多收录多少篇
 max_results_per_topic: 40
 
-# 回溯天数：只保留最近 N 天提交/更新的论文（避免每天重复抓旧论文）
-days_lookback: 2
+# 回溯天数：只保留最近 N 天提交的论文（首次抓取可适当放大）
+days_lookback: 3

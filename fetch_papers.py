@@ -74,10 +74,20 @@ def fetch(keywords: list[str], categories: list[str], max_results: int) -> list[
     }
     url = f"{ARXIV_API}?{urlencode(params)}"
     req = Request(url, headers={"User-Agent": "arxiv-daily/1.0"})
-    with urlopen(req, timeout=60) as resp:
-        raw = resp.read()
 
-    root = ET.fromstring(raw)
+    last_err = None
+    for attempt in range(3):  # arXiv API 偶发 IncompleteRead/超时，重试 3 次
+        try:
+            with urlopen(req, timeout=60) as resp:
+                raw = resp.read()
+            root = ET.fromstring(raw)
+            break
+        except Exception as e:
+            last_err = e
+            time.sleep(5 * (attempt + 1))
+    else:
+        raise last_err
+
     papers = []
     for entry in root.findall(f"{ATOM}entry"):
         arxiv_id = entry.findtext(f"{ATOM}id", "").rsplit("/", 1)[-1]
@@ -140,18 +150,30 @@ def update_topic_file(topic_name: str, slug: str, new_papers: list[dict], run_da
     return len(new_papers)
 
 
+def count_papers(slug: str) -> int:
+    path = PAPERS_DIR / f"{slug}.md"
+    if not path.exists():
+        return 0
+    return sum(1 for ln in path.read_text(encoding="utf-8").splitlines()
+               if ln.startswith("### "))
+
+
 def update_index(stats: dict, run_date: str) -> None:
+    grand_total = sum(count_papers(slug) for _, slug, _ in stats["topics"])
     lines = [
         "# 📚 arXiv 每日论文索引\n",
         f"_最后更新：{run_date}（UTC）。每日由 GitHub Actions 自动运行。_\n",
+        f"当前共收录 **{grand_total}** 篇论文，分为 {len(stats['topics'])} 个主题。\n",
         "## 主题分类\n",
-        "| 主题 | 本次新增 | 文件 |",
-        "| --- | --- | --- |",
+        "| 主题 | 累计 | 本次新增 | 文件 |",
+        "| --- | --- | --- | --- |",
     ]
     for topic_name, slug, count in stats["topics"]:
-        lines.append(f"| {topic_name} | {count} | [{slug}.md]({slug}.md) |")
+        total = count_papers(slug)
+        delta = f"+{count}" if count else "—"
+        lines.append(f"| {topic_name} | {total} | {delta} | [{slug}.md]({slug}.md) |")
     lines.append("")
-    lines.append(f"> 本次运行共新增 **{stats['total']}** 篇论文。\n")
+    lines.append(f"> 本次运行新增 **{stats['total']}** 篇。\n")
     (PAPERS_DIR / "README.md").write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -170,7 +192,7 @@ def main() -> int:
 
     for topic in cfg["topics"]:
         name = topic["name"]
-        slug = slugify(name)
+        slug = topic.get("slug") or slugify(name)
         keywords = topic["keywords"]
         print(f"[{name}] 检索中… 关键词={keywords}")
 
