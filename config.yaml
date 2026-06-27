@@ -1,0 +1,46 @@
+# ============================================================
+# arXiv 每日论文追踪 - 配置文件
+# 修改这里即可调整追踪的主题、关键词和范围，无需改代码。
+# ============================================================
+
+# 限定检索的 arXiv 学科分类（留空 [] 表示不限分类）。
+# 常用：cs.AI cs.LG cs.CL cs.CV cs.RO stat.ML eess.IV
+# 完整列表见 https://arxiv.org/category_taxonomy
+categories:
+  - cs.AI
+  - cs.LG
+  - cs.CL
+
+# 追踪的主题。每个主题会生成 papers/<slug>.md 一个分类文件。
+# keywords 之间是「或」关系：标题或摘要命中任意一个即收录。
+topics:
+  - name: "LLM Agents"
+    keywords:
+      - "LLM agent"
+      - "language model agent"
+      - "autonomous agent"
+      - "tool use"
+
+  - name: "Retrieval-Augmented Generation"
+    keywords:
+      - "retrieval-augmented"
+      - "RAG"
+      - "retrieval augmented generation"
+
+  - name: "Diffusion Models"
+    keywords:
+      - "diffusion model"
+      - "score-based generative"
+      - "flow matching"
+
+  - name: "Reinforcement Learning"
+    keywords:
+      - "reinforcement learning"
+      - "RLHF"
+      - "policy optimization"
+
+# 每个主题每次最多收录多少篇
+max_results_per_topic: 40
+
+# 回溯天数：只保留最近 N 天提交/更新的论文（避免每天重复抓旧论文）
+days_lookback: 2

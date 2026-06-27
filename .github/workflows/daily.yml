@@ -1,0 +1,40 @@
+name: Daily arXiv Fetch
+
+on:
+  schedule:
+    # 每天 UTC 01:00 运行（北京时间 09:00）。cron 用 UTC 时区。
+    - cron: "0 1 * * *"
+  workflow_dispatch: {}  # 允许在 Actions 页面手动触发
+
+permissions:
+  contents: write  # 允许工作流提交结果回仓库
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch papers
+        run: python fetch_papers.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add papers data
+          if git diff --staged --quiet; then
+            echo "无新增论文，跳过提交。"
+          else
+            git commit -m "chore: 更新 arXiv 论文 $(date -u +%Y-%m-%d)"
+            git push
+          fi
