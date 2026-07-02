@@ -2,6 +2,26 @@
 
 _自动追踪 arXiv 最新论文，最新更新在最上方。_
 
+## 📅 2026-07-02
+
+### [Learning Gait-Aware Quadruped Locomotion with Temporal Logic Specifications](https://arxiv.org/abs/2607.00442v1)
+
+- **arXiv**: `2607.00442v1`  |  **提交日期**: 2026-07-01
+- **作者**: Merve Atasever, Cagan Bakirci, Alfredo Reina Corona, Keyan Azbijari, Jyotirmoy V. Deshmukh
+
+Reinforcement learning (RL) for quadruped locomotion commonly depends on fixed, hand-crafted, and Markovian reward functions that limit both interpretability of learned policies and lack explicit control over gait behaviors. We introduce a framework where distinct gaits are specified using parameterized constraints expressed in Signal Temporal Logic (STL). These include safety bounds, gait synchronization constraints, command tracking, and actuation bounds. From these specifications, we develop a reward shaping mechanism that provides learning agents a dense, continuous reward landscape that…
+
+---
+
+### [The Quadruped Soft Tail: Compliant Grasping and Swabbing for Contamination Surveys in Harsh Environments](https://arxiv.org/abs/2606.30900v2)
+
+- **arXiv**: `2606.30900v2`  |  **提交日期**: 2026-06-29
+- **作者**: Harald Minde Hansen, Nandita Gallacher, Kristin Y. Pettersen, Jan Tommy Gravdahl, Mario di Castro
+
+Beryllium contamination surveys in radioactive areas are challenging for robots in environments cluttered with cables and electronics. To address this problem, we have developed a novel quadruped system augmentation: A lightweight, soft, and compliant tendon-actuated robotic tail mounted on a quadruped robot. The tail features a hollow, flexible backbone and a tendon-actuated soft gripper that enables the robot to pick up sampling tissues, swab contaminated surfaces, and release the tissues at designated collection locations for subsequent beryllium analysis. To enable intuitive…
+
+---
+
 ## 📅 2026-07-01
 
 ### [Learning Locomotion on Discrete Terrain via Minimal Proximity Sensing](https://arxiv.org/abs/2606.31912v1)

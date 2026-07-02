@@ -2,6 +2,17 @@
 
 _自动追踪 arXiv 最新论文，最新更新在最上方。_
 
+## 📅 2026-07-02
+
+### [PoseShield: Neural Collision Fields for Human Self-Collision Resolution](https://arxiv.org/abs/2606.29686v2)
+
+- **arXiv**: `2606.29686v2`  |  **提交日期**: 2026-06-29
+- **作者**: Zhengyuan Li, Zeyun Deng, Yifan Shen, Liangyan Gui, Miaolan Xie, Joseph Campbell et al.
+
+Self-collision remains a persistent challenge in SMPL-based human pose estimation and motion generation. Under extreme articulations or stochastic motion synthesis, generated meshes frequently exhibit self-penetrations, leading to physically implausible results. We propose PoseShield, a neural collision constraint defined directly in SMPL pose space. We formulate collision correction as a constrained optimization problem and connect the learned constraint with the Eikonal equation. Enforcing Eikonal regularization ensures non-vanishing gradients near the collision boundary, improving…
+
+---
+
 ## 📅 2026-07-01
 
 ### [World Narrative Model for Highly Controllable Video Generation: A Paradigm Shift from Pixel Sampling to Physical World Orchestration](https://arxiv.org/abs/2606.31946v1)

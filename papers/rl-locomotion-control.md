@@ -2,6 +2,62 @@
 
 _自动追踪 arXiv 最新论文，最新更新在最上方。_
 
+## 📅 2026-07-02
+
+### [A Data-Enabled Primal-Dual Approach for Policy Learning with SDP Formulations](https://arxiv.org/abs/2607.00644v1)
+
+- **arXiv**: `2607.00644v1`  |  **提交日期**: 2026-07-01
+- **作者**: Han Wang, Feiran Zhao, Florian Dorfler
+
+This paper develops a data-enabled primal-dual framework for learning optimal control policies for unknown linear discrete-time systems from online data. The proposed approach views the data-dependent control synthesis problem as a time-varying semidefinite program (SDP) whose coefficients are recursively updated from online closed-loop measurements. Instead of repeatedly solving a full SDP as new data arrive, the policy is updated online through lightweight primal-dual iterations, each consisting of a linear equation solve and a projection onto the positive semidefinite cone. The framework…
+
+---
+
+### [[Preprint] Dynamic Modeling, Gait Synthesis, and Control of a Novel Subsurface Bore Propagator](https://arxiv.org/abs/2607.00569v1)
+
+- **arXiv**: `2607.00569v1`  |  **提交日期**: 2026-07-01
+- **作者**: Lina van Brügge, Shruti Kotpalliwar, Anton Koval, Akshit Saradagi, George Nikolakopoulos
+
+In this article, we present dynamic modeling, gait synthesis, and feedback control design for a modular novel subsurface robot, designed for human-free subsurface exploration and excavation. The subsurface propagator design is based on two major aspects: 1) anchor and propel movement like an earthworm and 2) excavation similar to tunnel boring machines. This design is decoupled into five separate modules: one drill head to excavate and create cavity for propagation, two modules to anchor the robot, and two modules to enable propagation of the body. In order to design a controller for each of…
+
+---
+
+### [ASPIRE: Agentic /Skills Discovery for Robotics](https://arxiv.org/abs/2607.00272v1)
+
+- **arXiv**: `2607.00272v1`  |  **提交日期**: 2026-06-30
+- **作者**: Runyu Lu, Yubo Wu, Ethan Kou, Letian Fu, Wenli Xiao, Ajay Mandlekar et al.
+
+Traditional robot programming is challenging: it requires orchestrating multimodal perception, managing physical contact dynamics, and handling diverse configurations and execution failures. We introduce ASPIRE (Agentic Skill Programming through Iterative Robot Exploration), a continual learning system that autonomously writes and refines robot control programs in a code-as-policy paradigm while compounding experience into a reusable skill library. ASPIRE discovers skills that persist across tasks, simulation and real-world settings, and embodiments. It operates in an open-ended loop with…
+
+---
+
+### [3D Point World Models: Point Completion Enables More Accurate Dynamics Learning](https://arxiv.org/abs/2607.00148v1)
+
+- **arXiv**: `2607.00148v1`  |  **提交日期**: 2026-06-30
+- **作者**: Skand Peri, Hung Nguyen, Chanho Kim, Li Fuxin, Stefan Lee
+
+Learning predictive models of the world enables robotic control through planning, potentially allowing robots to improvise solutions on new tasks. However, large video-based dynamics models lack explicit 3D spatial structure and suffer from geometrically inconsistent long-term rollouts with compounding errors. Emerging 3D dynamics models based on partial point clouds improve geometric consistency but remain sensitive to occlusions and accumulated prediction drift. To address these challenges, we present 3D Point World Models (3DPWM) - a task-agnostic world model that operates entirely in 3D…
+
+---
+
+### [A Synthetic-Driven Vision System for Assembly Step Recognition](https://arxiv.org/abs/2607.00129v1)
+
+- **arXiv**: `2607.00129v1`  |  **提交日期**: 2026-06-30
+- **作者**: Hui Zhang, Xuanang Lei, Rui Wang, Julian Ferchow, Mirko Meboldt
+
+Quality control in industrial assembly is essential, and real-time monitoring of the assembly process is crucial for preventing costly defects and ensuring production reliability. Vision-based automated inspection offers a powerful solution for such real-time monitoring. However, due to the specialized industrial components and processes, training these models typically relies on task-specific real-world data, which is costly and labor-intensive to collect and annotate. In this paper, we propose a system that automatically generates realistic assembly sequences and further trains real-time…
+
+---
+
+### [Warp RL: Reshaping Base Policy Distributions for Dynamics Adaptation](https://arxiv.org/abs/2606.31043v2)
+
+- **arXiv**: `2606.31043v2`  |  **提交日期**: 2026-06-30
+- **作者**: Ethan Hirschowitz, Fabio Ramos
+
+Residual reinforcement learning adapts a pretrained robot policy by learning an additive correction to its actions. While effective when adaptation amounts to shifting the base policy's action distribution, additive corrections cannot change the distribution's shape, scale, or state-dependent geometry -- limitations we formalize as wrong variance, miscalibrated confidence, and non-uniform correction. We show that these matter under dynamics shift: when the base distribution is geometrically mismatched to the shifted system, residual correction can underperform even the unadapted policy. We…
+
+---
+
 ## 📅 2026-07-01
 
 ### [OopsieVerse: A Safety Benchmark with Damage-Aware Simulation for Robot Manipulation](https://arxiv.org/abs/2606.31993v1)
